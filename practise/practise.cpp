@@ -1,6 +1,132 @@
 ﻿#include <iostream>
 using namespace std;
 /*
+*	n皇后
+*	n=13已得到AC
+*	inventor
+*	6.16
+int MAX = 0;
+int coor[20][2] = { 0 };
+int total = 0;
+
+bool judge(int x,int y)
+{
+	for (int i = 0; i < x; i++)
+	{
+		if (coor[i][1] == y|| coor[i][0] - coor[i][1] == x - y|| coor[i][0] + coor[i][1] == x + y)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+void queue(int x,int y)
+{
+	if (judge(x, y))
+	{
+		coor[x][0] = x;
+		coor[x][1] = y;
+		if (x == MAX-1)
+		{
+			if (total < 3)
+			{
+				for (int i = 0; i < MAX; i++)
+				{
+					printf("%d ", coor[i][1] + 1);
+				}
+				printf("\n");
+			}
+			total++;
+			return;
+		}
+		queue(++x, y);
+	}
+	else
+	{
+		return; 
+	}
+	for (int i = 0; i < MAX; i++)
+	{
+			queue(x, i);
+			coor[x][0] = 0;
+			coor[x][1] = 0;
+	}
+}
+
+//void queue(int n)
+//{
+//	if (n == MAX)
+//	{
+//		if (total < 3)
+//		{
+//				for (int i = 0; i < MAX; i++)
+//				{
+//					printf("%d ", coor[i][1] + 1);
+//				}
+//				printf("\n");
+//		}
+//		total++;
+//		return;
+//	}
+//	for (int i = 0; i < MAX; i++)
+//	{
+//		if (judge(n, i))
+//		{
+//			coor[n][0] = n;
+//			coor[n][1] = i;
+//			queue(++n);
+//			n--;
+//			coor[n][0] = 0;
+//			coor[n][1] = 0;
+//		}
+//	}
+//}
+
+int main()
+{
+	cin >> MAX;
+	if (MAX == 6)
+	{
+		for (int i = 0; i < 6; i++)
+			queue(0, i);
+		printf("%d", total);
+		return 0;
+	}
+	if (MAX % 2)
+	{
+		for (int i = 0; i < (MAX-1) / 2; i++)
+			queue(0, i);
+		total = total * 2;
+		queue(0, (MAX-1)/2);
+	}
+	else
+	{
+		for (int i = 0; i < MAX / 2; i++)
+			queue(0, i);
+		total = total * 2;
+	}
+	printf("%d", total);
+	return 0;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 * 二叉树遍历
 * inventor
 * 2022.6.6
